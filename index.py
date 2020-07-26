@@ -6,8 +6,8 @@ class Screen():
   def __init__(self):
     # Layout
     layout = [
-      [sg.Text('Username:', size=(10,0)), sg.Input(size=(35,0))],
-      [sg.Text('Password:', size=(10,0)), sg.Input(size=(35,0), password_char='*')],
+      [sg.Text('Username:', size=(10,0)), sg.Input(key='-USERNAME-', size=(35,0))],
+      [sg.Text('Password:', size=(10,0)), sg.Input(key='-PASSWORD-', size=(35,0), password_char='*')],
       [sg.Button('Submit'), sg.Exit()]
     ]
     # Window
@@ -22,7 +22,7 @@ class Screen():
       if self.Button in (None, 'Exit'):
         exit()
       elif self.Button == 'Submit':
-        sg.Popup('Username {}\nPassword {}'.format(self.values[0], self.values[1]))
+        sg.Popup('Username {}\nPassword {}'.format(self.values['-USERNAME-'], self.values['-PASSWORD-']))
 
       retries -= 1
       if retries == 0:
